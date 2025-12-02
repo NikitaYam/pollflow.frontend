@@ -1,22 +1,29 @@
-
-import SurveyGenerator from './components/SurveyGenerator';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import EnterNumberPage from './pages/EnterNumberPage';
+import AuthPage from './pages/AuthPage';
+import DashboardPage from './pages/DashboardPage';
+import ConstructorPage from './pages/ConstructorPage';
+import SurveyPage from './pages/SurveyPage';
+import ResultsPage from './pages/ResultsPage';
+import './styles/App.css';
 
 function App() {
   return (
-    <div className="container">
-      <header>
-        <h1>🎯 Генератор опросов с Mixtral 8x7B</h1>
-        <p>Мощный AI для создания профессиональных опросов</p>
-        <div className="model-info">
-          <span className="model-badge">Mixtral 8x7B</span>
-          <span className="model-badge">32K контекст</span>
-          <span className="model-badge">Serveo туннель</span>
-        </div>
-      </header>
-      
-      <SurveyGenerator />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/enter-number" element={<EnterNumberPage />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/constructor" element={<ConstructorPage />} />
+        <Route path="/survey/:surveyId" element={<SurveyPage />} />
+        <Route path="/results/:surveyId" element={<ResultsPage />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+

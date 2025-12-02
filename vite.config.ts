@@ -3,7 +3,14 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  server: {
-    port: 3000
+  resolve: {
+    alias: {
+      'types': '/src/types',
+      'services': '/src/services',
+      'components': '/src/components',
+      'pages': '/src/pages',
+      'styles': '/src/styles'
+    }
   }
 })
+
